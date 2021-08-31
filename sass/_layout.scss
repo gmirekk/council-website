@@ -1,0 +1,380 @@
+.site-header {
+  background-color: $color-white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 8rem;
+  padding: 2rem 0;
+
+  &.is-active {
+    background-color: #016e8e;
+    top: 0;
+    transition: 0.4s ease-in;
+  }
+
+  .brand-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 38px;
+    width: 190px;
+    padding-left: 1.25rem;
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  .nav-container {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    .nav-list {
+      display: flex;
+      align-items: center;
+      padding-top: 0.8rem;
+      list-style: none;
+      justify-content: flex-end;
+      margin-left: 1vw;
+
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+
+      .nav-link {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: $color-black;
+        text-transform: uppercase;
+        margin-left: 2vw;
+      }
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  background-image: url(../img/hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60rem;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-white;
+
+  margin-bottom: 8rem;
+
+  .hero-text {
+    margin-top: 8rem;
+    z-index: 2;
+    max-width: 100rem;
+
+    h1 {
+      margin: 0;
+      font-size: 4.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    p {
+      letter-spacing: 0.2px;
+      font-size: 1.7rem;
+      line-height: 1.5;
+      padding: 0px 15rem;
+      margin-bottom: 2.9rem;
+
+      @media screen and (max-width: 700px) {
+        padding: 0;
+      }
+    }
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+// About section
+.about {
+  margin-bottom: 8rem;
+
+  .who-wrapper {
+    margin-bottom: 8rem;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    line-height: 2;
+
+    &:first-child {
+      padding-right: 3rem;
+    }
+
+    &:last-child {
+      padding-left: 3rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    p:first-of-type {
+      margin-bottom: 2.9rem;
+    }
+
+    & a {
+      color: $color-blue;
+    }
+  }
+
+  .about-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  @media screen and (max-width: 639px) {
+    .about-text {
+      margin-bottom: 8vh;
+      text-align: center;
+
+      a {
+        margin-top: 1vh;
+      }
+    }
+
+    .what-wrapper {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.testimonials {
+  background-color: #016e8e;
+  text-align: center;
+  color: $color-white;
+  position: relative;
+  padding: 8rem 0px;
+  padding-bottom: 16rem;
+  border: solid 1px #979797;
+
+  .testimonials-wrapper {
+    @media screen and (max-width: 1280px) {
+      margin: 0 1.25rem;
+    }
+
+    h2 {
+      padding-bottom: 8rem;
+    }
+
+    .slide-wrapper {
+      position: relative;
+      max-width: 110rem;
+
+      .slide {
+        font-size: 1.4rem;
+        letter-spacing: 0.5px;
+        line-height: 2;
+        text-align: start;
+
+        p:first-of-type {
+          margin-bottom: 2.9rem;
+        }
+
+        .signature {
+          text-align: end;
+          font-weight: 700;
+          // margin-bottom: 9.6rem;
+
+          & span {
+            font-weight: 400;
+            font-style: italic;
+          }
+          margin-top: 3rem;
+        }
+      }
+    }
+  }
+  .quote-left-wrapper {
+    position: absolute;
+    top: 20;
+    left: 0;
+    max-width: 12%;
+
+    .quote-left {
+      width: 100%;
+    }
+  }
+
+  .quote-right-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 12%;
+    transform: translateY(60px);
+
+    .quote-right {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 800px) {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+//Benefits
+
+.benefits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 0;
+
+  h2 {
+    margin-bottom: 7.3rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    letter-spacing: 1.88px;
+    margin: 1rem 0px;
+  }
+
+  p {
+    font-size: 1.4rem;
+    max-width: 18.3rem;
+    margin: auto;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding: 0;
+
+    h2 {
+      padding-top: 8rem;
+    }
+
+    .cell {
+      margin-bottom: 8vh;
+    }
+  }
+}
+
+//Apply
+
+.apply {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  background-image: url(../img/ocean.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 45rem;
+
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .apply-text {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+    h3 {
+      font-size: 4rem;
+      color: $color-white;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+      color: $color-white;
+      max-width: 60rem;
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+      margin-bottom: 6rem;
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  background-color: $color-blue;
+  color: $color-white;
+  padding: 5rem 0rem 5.7rem;
+
+  .footer-logo {
+    position: absolute;
+    top: 0;
+    left: -5vw;
+
+    @media screen and (max-width: 1480px) {
+      left: 0vw;
+      margin-left: 1.25rem;
+    }
+  }
+
+  .footer-wrapper {
+    justify-content: space-between;
+
+    @media screen and (max-width: 1480px) {
+      margin-left: 5vw;
+    }
+
+    @media screen and (max-width: 639px) {
+      padding-top: 10rem;
+      margin-left: 0vw;
+    }
+    p {
+      font-size: 1.4rem;
+      margin-top: -1rem;
+
+      & span {
+        font-weight: 700;
+      }
+
+      @media screen and (max-width: 639px) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}
+
+.microsite-wrapper {
+  .microsite-logo img {
+    @media screen and (max-width: 639px) {
+      justify-content: flex-start;
+    }
+  }
+}
