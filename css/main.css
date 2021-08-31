@@ -577,7 +577,7 @@ h2 {
 
 @media screen and (min-width: 640px) and (max-width: 1023px) {
   .benefits .cell {
-    margin-bottom: 4vh;
+    margin-bottom: 3rem;
   }
 }
 
