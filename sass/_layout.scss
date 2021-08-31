@@ -3,15 +3,17 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 10;
   width: 100%;
   height: 8rem;
   padding: 2rem 0;
 
+  @media screen and (max-width: 750px) {
+    height: 7rem;
+  }
+
   &.is-active {
-    background-color: #016e8e;
-    top: 0;
-    transition: 0.4s ease-in;
+    background-color: transparent;
   }
 
   .brand-logo {
@@ -24,6 +26,12 @@
 
     &.hidden {
       opacity: 0;
+    }
+
+    @media screen and (max-width: 639px) {
+      height: 30px;
+      width: 140px;
+      padding-top: 0.3vh;
     }
   }
 
@@ -55,6 +63,112 @@
       }
     }
   }
+
+  .hamburger {
+    position: fixed;
+    right: 5%;
+    top: 50%;
+
+    display: none;
+    width: 30px;
+    cursor: pointer;
+
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    z-index: 10;
+  }
+
+  .hamburger .bar,
+  .hamburger::after,
+  .hamburger::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-black;
+    margin: 6px 0;
+    transition: 0.4s;
+    z-index: 10;
+  }
+
+  .hamburger.is-active::before {
+    transform: rotate(-45deg) translate(-4px, 2px);
+    background-color: $color-white;
+    z-index: 10;
+  }
+
+  .hamburger.is-active .bar {
+    opacity: 0;
+  }
+
+  .hamburger.is-active::after {
+    transform: rotate(45deg) translate(-9px, -7px);
+    background-color: $color-white;
+    z-index: 10;
+  }
+
+  @media screen and (max-width: 750px) {
+    ul#nav-list,
+    .nav-button {
+      display: none;
+    }
+
+    .hamburger {
+      position: absolute;
+      display: block;
+      top: 50%;
+      right: 5%;
+      z-index: 100;
+    }
+  }
+}
+
+.mobile-nav {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  background-color: $color-blue;
+  font-size: 3rem;
+  z-index: 10;
+  transition: 0.4s ease-in;
+
+  list-style-type: none;
+  text-transform: uppercase;
+
+  a {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+.mobile-nav.is-active {
+  left: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .mobile-nav {
+    font-weight: 700;
+    // margin-top: 7vh;
+    display: flex;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .hero {
@@ -72,17 +186,30 @@
   color: $color-white;
 
   margin-bottom: 8rem;
+  z-index: -2;
+
+  @media screen and (max-width: 639px) {
+    margin-bottom: 3rem;
+  }
 
   .hero-text {
     margin-top: 8rem;
-    z-index: 2;
     max-width: 100rem;
+
+    @media screen and (max-width: 639px) {
+      margin-top: 3rem;
+    }
 
     h1 {
       margin: 0;
       font-size: 4.5rem;
       text-transform: uppercase;
       letter-spacing: 2px;
+
+      @media screen and (max-width: 639px) {
+        margin-bottom: 2rem;
+        font-size: 3.8rem;
+      }
     }
 
     p {
@@ -91,6 +218,10 @@
       line-height: 1.5;
       padding: 0px 15rem;
       margin-bottom: 2.9rem;
+
+      @media screen and (max-width: 639px) {
+        margin-bottom: 3rem;
+      }
 
       @media screen and (max-width: 700px) {
         padding: 0;
@@ -106,7 +237,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: -1;
   }
 }
 
@@ -114,8 +245,16 @@
 .about {
   margin-bottom: 8rem;
 
+  @media screen and (max-width: 639px) {
+    margin-bottom: 6rem;
+  }
+
   .who-wrapper {
     margin-bottom: 8rem;
+
+    @media screen and (max-width: 639px) {
+      margin-bottom: 3rem;
+    }
   }
 
   .about-text {
@@ -145,27 +284,37 @@
     & a {
       color: $color-blue;
     }
-  }
 
-  .about-img {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
+    @media screen and (max-width: 639px) {
+      &:first-child,
+      &:last-child {
+        padding-right: 0rem;
+        padding-left: 0rem;
 
-  @media screen and (max-width: 639px) {
-    .about-text {
-      margin-bottom: 8vh;
-      text-align: center;
-
-      a {
-        margin-top: 1vh;
+        margin-bottom: 5rem;
       }
     }
+  }
+}
 
-    .what-wrapper {
-      flex-direction: column-reverse;
+.about-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 639px) {
+  .about-text {
+    text-align: center;
+
+    a {
+      margin-top: 1vh;
     }
+  }
+}
+@media screen and (max-width: 639px) {
+  .what-wrapper {
+    flex-direction: column-reverse !important;
   }
 }
 
@@ -178,6 +327,11 @@
   padding-bottom: 16rem;
   border: solid 1px #979797;
 
+  @media screen and (max-width: 639px) {
+    padding: 3rem 0;
+    padding-bottom: 11rem;
+  }
+
   .testimonials-wrapper {
     @media screen and (max-width: 1280px) {
       margin: 0 1.25rem;
@@ -185,6 +339,10 @@
 
     h2 {
       padding-bottom: 8rem;
+
+      @media screen and (max-width: 639px) {
+        padding-bottom: 4rem;
+      }
     }
 
     .slide-wrapper {
@@ -199,6 +357,12 @@
 
         p:first-of-type {
           margin-bottom: 2.9rem;
+        }
+
+        p {
+          @media screen and (max-width: 639px) {
+            text-align: center;
+          }
         }
 
         .signature {
@@ -252,6 +416,11 @@
   text-align: center;
   padding: 8rem 0;
 
+  @media screen and (max-width: 639px) {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   h2 {
     margin-bottom: 7.3rem;
   }
@@ -268,15 +437,22 @@
     margin: auto;
   }
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 639px) {
     padding: 0;
 
     h2 {
-      padding-top: 8rem;
+      padding-top: 3rem;
+      margin-bottom: 4rem;
     }
 
     .cell {
-      margin-bottom: 8vh;
+      margin-bottom: 4vh;
+    }
+  }
+
+  @media screen and (min-width: 640px) and (max-width: 1023px) {
+    .cell {
+      margin-bottom: 4vh;
     }
   }
 }
@@ -324,6 +500,10 @@
       letter-spacing: 0.5px;
       line-height: 1.6;
       margin-bottom: 6rem;
+
+      @media screen and (max-width: 639px) {
+        margin-bottom: 4rem;
+      }
     }
   }
 }
@@ -334,12 +514,23 @@
   color: $color-white;
   padding: 5rem 0rem 5.7rem;
 
+  @media screen and (max-width: 639px) {
+    padding-bottom: 4.5rem;
+  }
+
   .footer-logo {
     position: absolute;
     top: 0;
     left: -5vw;
 
-    @media screen and (max-width: 1480px) {
+    @media screen and (max-width: 630px) {
+      position: relative;
+      display: inline-block;
+      margin-left: 0;
+      left: 0;
+    }
+
+    @media screen and (min-width: 640px) and (max-width: 1480px) {
       left: 0vw;
       margin-left: 1.25rem;
     }
@@ -353,11 +544,11 @@
     }
 
     @media screen and (max-width: 639px) {
-      padding-top: 10rem;
+      padding-top: 5rem;
       margin-left: 0vw;
     }
     p {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       margin-top: -1rem;
 
       & span {
@@ -372,6 +563,7 @@
 }
 
 .microsite-wrapper {
+  justify-content: flex-end;
   .microsite-logo img {
     @media screen and (max-width: 639px) {
       justify-content: flex-start;
