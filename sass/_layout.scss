@@ -8,8 +8,12 @@
   height: 8rem;
   padding: 2rem 0;
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 639px) {
     height: 7rem;
+  }
+
+  @media screen and (min-width: 640px) and (max-width: 750px) {
+    height: 8rem;
   }
 
   &.is-active {
@@ -59,7 +63,7 @@
         text-decoration: none;
         color: $color-black;
         text-transform: uppercase;
-        margin-left: 25px;
+        margin-left: 2vw;
       }
     }
   }
