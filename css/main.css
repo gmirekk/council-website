@@ -237,7 +237,7 @@ h2 {
   height: 2px;
   background-color: #000;
   margin: 6px 0;
-  transition: 0.4s;
+  transition: all 0.3s ease;
   z-index: 10;
 }
 
